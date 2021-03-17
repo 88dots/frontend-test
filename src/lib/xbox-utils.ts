@@ -3,6 +3,10 @@
  * Same idea would apply for others (dualshock, joycon, etc...)
  */
 
+const assertNever = (x: never): never => {
+  throw new Error(`Unexpected value '${x}'. Should have been never.`);
+}
+
 /**
  * Return the GamepadButton object associated with the btnName value
  * @param gamepad
@@ -10,7 +14,7 @@
  * @param btnName
  * The name of the target button ex. A, X, Y, ...
  */
-export const button = (gamepad: Gamepad, btnName: XboxBtnName): GamepadButton => {
+export const button = (gamepad: Gamepad, btnName: XboxBtnName): GamepadButton  => {
   switch (btnName) {
     case 'A':
       return gamepad.buttons[0]
@@ -44,6 +48,8 @@ export const button = (gamepad: Gamepad, btnName: XboxBtnName): GamepadButton =>
       return gamepad.buttons[14]
     case 'DPad-Down':
       return gamepad.buttons[15]
+    default:
+      return assertNever(btnName)
   }
 }
 
