@@ -1,5 +1,4 @@
 import React from 'react'
-import './App.css'
 import {AppContainer} from './styles'
 
 import 'antd/dist/antd.dark.css'
