@@ -60,5 +60,5 @@ export default App
 ```
 
 
-![Screenshot](../widget/img.png)
+![Screenshot](../widget/widget.png)
 
