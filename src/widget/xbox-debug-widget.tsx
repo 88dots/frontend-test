@@ -124,6 +124,7 @@ const XboxWidget: React.FC<ControllerWidgetProps> = ({gamepadInd}) => {
       <SpaceBetweenRow>
         <JoystickContainer>
           <JoyStick
+            gamepadInd={gamepadInd}
             direction="L-Joy"
             src={LeftJoyStickImg}
           />
@@ -146,6 +147,7 @@ const XboxWidget: React.FC<ControllerWidgetProps> = ({gamepadInd}) => {
         />
         <JoystickContainer>
           <JoyStick
+            gamepadInd={gamepadInd}
             direction="R-Joy"
             src={RightJoyStickImg}
           />

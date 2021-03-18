@@ -11,7 +11,7 @@ import XboxWidget from './widget/xbox-debug-widget'
 const App: React.FC = () => {
   return (
     <AppContainer>
-      <XboxWidget gamepadInd={2}/>
+      <XboxWidget gamepadInd={0}/>
     </AppContainer>
   )
 }
