@@ -59,8 +59,10 @@ export const MenuButtonsContainer = styled.div`
 
 export const JoystickContainer = styled.div`
   max-width: fit-content;
+  margin-top: 10px;
 `
 
 export const FacebuttonsContainer = styled.div`
   max-width: 60px;
+  margin: 10px;
 `

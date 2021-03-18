@@ -4,6 +4,7 @@ import BBtn from '../prompts/XboxOne_B.png'
 import XBtn from '../prompts/XboxOne_X.png'
 import YBtn from '../prompts/XboxOne_Y.png'
 import {BtnImg} from './style'
+import styled from 'styled-components'
 
 interface FaceButtonProps {
   aBtn: boolean
@@ -12,32 +13,40 @@ interface FaceButtonProps {
   yBtn: boolean
 }
 
+const FaceButtonsDiamondContainer = styled.div`
+  transform: rotate(-45deg);
+`
+
+const FaceButtonImg = styled(BtnImg)`
+  transform: rotate(45deg);
+`
+
 const FaceButtons: React.FC<FaceButtonProps> = (props) => {
   const {aBtn, bBtn, xBtn, yBtn} = props
 
   return (
-    <div>
+    <FaceButtonsDiamondContainer>
       <div>
-        <BtnImg
+        <FaceButtonImg
           pressed={xBtn}
           src={XBtn}
         />
-        <BtnImg
+        <FaceButtonImg
           pressed={yBtn}
           src={YBtn}
         />
       </div>
       <div>
-        <BtnImg
+        <FaceButtonImg
           pressed={aBtn}
           src={ABtn}
         />
-        <BtnImg
+        <FaceButtonImg
           pressed={bBtn}
           src={BBtn}
         />
       </div>
-    </div>
+    </FaceButtonsDiamondContainer>
   )
 }
 
