@@ -4,7 +4,7 @@ const useGamePads = (onChangeGamePad: UseGamePadCallback) => {
   const allGamePads = React.useRef<GamepadsConnectedRef>({})
   const requestAnimationRef = React.useRef<number>()
 
-  const hasEvents = 'ongamepadconnected' in window
+  const hasConnectedEvent = 'ongamepadconnected' in window
 
   const addGamePad = (gamepad: Gamepad) => {
     allGamePads.current = {
@@ -29,13 +29,13 @@ const useGamePads = (onChangeGamePad: UseGamePadCallback) => {
     return () => window.removeEventListener('gamepadconnected', onConnectGamePad)
   })
 
-  const animate: FrameRequestCallback = (time) => {
-    if (!hasEvents) scanAllGamePads()
-    requestAnimationRef.current = requestAnimationFrame(animate)
+  const gameLoop: FrameRequestCallback = (time) => {
+    if (!hasConnectedEvent) scanAllGamePads()
+    requestAnimationRef.current = requestAnimationFrame(gameLoop)
   }
 
   React.useEffect(() => {
-    requestAnimationRef.current = requestAnimationFrame(animate)
+    requestAnimationRef.current = requestAnimationFrame(gameLoop)
     return () => {
       const currentTickerValue = requestAnimationRef.current
       currentTickerValue && cancelAnimationFrame(currentTickerValue)
