@@ -32,7 +32,7 @@ export const button = (gamepad: Gamepad, btnName: XboxBtnName): GamepadButton  =
       return gamepad.buttons[6]
     case 'R-Trigger':
       return gamepad.buttons[7]
-    case 'View':
+    case 'Windows':
       return gamepad.buttons[8]
     case 'Menu':
       return gamepad.buttons[9]
@@ -42,12 +42,12 @@ export const button = (gamepad: Gamepad, btnName: XboxBtnName): GamepadButton  =
       return gamepad.buttons[11]
     case 'DPad-Up':
       return gamepad.buttons[12]
-    case 'DPad-Left':
-      return gamepad.buttons[13]
     case 'DPad-Right':
+      return gamepad.buttons[15]
+    case 'DPad-Left':
       return gamepad.buttons[14]
     case 'DPad-Down':
-      return gamepad.buttons[15]
+      return gamepad.buttons[13]
     default:
       return assertNever(btnName)
   }
